@@ -1,4 +1,4 @@
-# First API Project 🌐
+# API Project 🌐
 
 This is a simple web application that allows users to view posts by different users. It fetches data from the [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API and displays user information and their respective posts.
 
