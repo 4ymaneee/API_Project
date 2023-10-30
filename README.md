@@ -3,8 +3,7 @@
 This is a simple web application that allows users to view posts by different users. It fetches data from the [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API and displays user information and their respective posts.
 
 <div align="center">
-  <img src="https://www.datocms-assets.com/48401/1627660998-api-diagram.png?fit=max&w=900" alt="Project Screenshot 1">
-  <img src="image.png" alt="Project Screenshot 2">
+  <img src="image.png" alt="Project Screenshot 1">
 </div>
 
 ## Description 📄
