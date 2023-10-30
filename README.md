@@ -3,7 +3,8 @@
 This is a simple web application that allows users to view posts by different users. It fetches data from the [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API and displays user information and their respective posts.
 
 <div align="center">
-  <img src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_750,h_400/https://blog.dreamfactory.com/wp-content/uploads/2023/05/API-Integration-Diagram-2-1.png" alt="Project Screenshot">
+  <img src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_750,h_400/https://blog.dreamfactory.com/wp-content/uploads/2023/05/API-Integration-Diagram-2-1.png" alt="Project Screenshot 1">
+  <img src="https://example.com/your-second-image.jpg" alt="Project Screenshot 2">
 </div>
 
 ## Description 📄
