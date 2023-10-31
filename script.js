@@ -61,15 +61,15 @@ function getAllPosts(userId) {
   fetch("https://jsonplaceholder.typicode.com/posts?userId=" + userId)
     .then((response) => response.json())
     .then((posts) => {
-      let allPosts = document.querySelector(".posts");
-      allPosts.innerHTML = "";
-      for (let post of posts) {
-        allPosts.innerHTML += ` <div class="post">
-                                <h4>${post.title}</h4>
-                                <hr style="margin: 5px 0 5px 0;">
-                                <h5>${post.body}</h5>
-                                </div>`;
-      }
+let allPosts = document.querySelector(".posts");
+allPosts.innerHTML = "";
+for (let post of posts) {
+  allPosts.innerHTML += ` <div class="post">
+                          <h4>${post.title}</h4>
+                          <hr style="margin: 5px 0 5px 0;">
+                          <h5>${post.body}</h5>
+                          </div>`;
+}
     });
 }
 
@@ -78,14 +78,14 @@ function getAllUsers() {
   fetch("https://jsonplaceholder.typicode.com/users")
     .then((response) => response.json())
     .then((users) => {
-      let allUsers = document.querySelector(".users");
-      allUsers.innerHTML = "";
-      for (let user of users) {
-        allUsers.innerHTML += `<div class="user" onclick="userCLicked(${user.id}, this)">
-                                     <h5>${user.name}</h5>
-                                     <h6>${user.email}</h6>
-                                     </div>`;
-      }
+let allUsers = document.querySelector(".users");
+allUsers.innerHTML = "";
+for (let user of users) {
+  allUsers.innerHTML += `<div class="user" onclick="userCLicked(${user.id}, this)">
+                               <h5>${user.name}</h5>
+                               <h6>${user.email}</h6>
+                               </div>`;
+}
     });
 }
 
@@ -96,6 +96,60 @@ function userCLicked(id, ele) {
   getAllPosts(id);
   let allUsers = document.querySelectorAll(".user");
   for (let user of allUsers) {
+    user.classList.remove("selected");
+  }
+  ele.classList.add("selected");
+}
+
+//Using Axios Library
+function getUsersUsingAxios() {
+  return new Promise((resolve, reject) => {
+    axios.get("https://jsonplaceholder.typicode.com/users").then((response) => {
+      let users = response.data;
+      let allUsers = document.querySelector(".users");
+      allUsers.innerHTML = "";
+      for (let user of users) {
+        allUsers.innerHTML += `<div class="user" onclick="userCLIcked(${user.id}, this)">
+                                   <h5>${user.name}</h5>
+                                   <h6>${user.email}</h6>
+                                   </div>`;
+      }
+      resolve();
+    });
+  }).catch((error) => {
+    alert(error);
+    reject(error);
+  });
+}
+
+function getPostsUsingAxios(userId) {
+  axios
+    .get("https://jsonplaceholder.typicode.com/posts?userId=" + userId)
+    .then((response) => {
+      let posts = response.data;
+      let allPosts = document.querySelector(".posts");
+      allPosts.innerHTML = "";
+      for (let post of posts) {
+        allPosts.innerHTML += ` <div class="post">
+                              <h4>${post.title}</h4>
+                              <hr style="margin: 5px 0 5px 0;">
+                              <h5>${post.body}</h5>
+                              </div>`;
+      }
+    })
+    .catch((error) => {
+      alert(error);
+    });
+}
+
+getUsersUsingAxios().then(() => {
+  getPostsUsingAxios(1);
+});
+
+function userCLIcked(id, ele) {
+  getPostsUsingAxios(id);
+  let users = document.querySelectorAll(".user");
+  for (let user of users) {
     user.classList.remove("selected");
   }
   ele.classList.add("selected");
